@@ -8,7 +8,6 @@ import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
 import Typography from "@mui/material/Typography";
 
-
 const root = {
     display: "flex",
     justifyContent: "center",
@@ -19,8 +18,8 @@ const root = {
 };
 const chip = { margin: 0.5 };
 
-const MovieDetails = ( props) => {
-  const movie = props.movie
+const MovieDetails = (props) => {
+  const movie = props.movie;
 
   return (
     <>
@@ -32,10 +31,7 @@ const MovieDetails = ( props) => {
         {movie.overview}
       </Typography>
 
-      <Paper 
-        component="ul" 
-        sx={{...root}}
-      >
+      <Paper component="ul" sx={{...root}}>
         <li>
           <Chip label="Genres" sx={{...chip}} color="primary" />
         </li>
@@ -45,6 +41,18 @@ const MovieDetails = ( props) => {
           </li>
         ))}
       </Paper>
+
+      <Paper component="ul" sx={{...root}}>
+        <li>
+          <Chip label="Production Countries" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map(country => (
+          <li key={country.id}>
+            <Chip label={country.name} sx={{...chip}} />
+          </li>
+        ))}
+      </Paper>
+
       <Paper component="ul" sx={{...root}}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
@@ -57,6 +65,7 @@ const MovieDetails = ( props) => {
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+
       <Fab
         color="secondary"
         variant="extended"
@@ -69,7 +78,8 @@ const MovieDetails = ( props) => {
         <NavigationIcon />
         Reviews
       </Fab>
-      </>
+    </>
   );
 };
-export default MovieDetails ;
+
+export default MovieDetails;

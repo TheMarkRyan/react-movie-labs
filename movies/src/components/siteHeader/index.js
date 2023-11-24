@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
+import { Link } from 'react-router-dom';
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -26,8 +27,8 @@ const SiteHeader = ({ history }) => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
-    { label: "Option 3", path: "/" },
-    { label: "Option 4", path: "/" },
+    { label: "Upcoming Movies", path: "/movies/upcoming" }, 
+    { label: "Option 4", path: "/" }, 
   ];
 
   const handleMenuSelect = (pageURL) => {
